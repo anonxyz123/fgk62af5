@@ -1,0 +1,7 @@
+# Arch. Searching
+CUDA_VISIBLE_DEVICES=3 bash ./scripts-search/algos/ENAS.sh cifar100 1 -1 ccrs 0.75 && CUDA_VISIBLE_DEVICES=3 bash ./scripts-search/algos/ENAS.sh cifar100 1 -1 ccrs 0.5 && CUDA_VISIBLE_DEVICES=3 bash ./scripts-search/algos/ENAS.sh cifar100 1 -1 ccrs 0.25
+
+# Train from scratch
+CUDA_VISIBLE_DEVICES=2 bash ./scripts-search/NAS-Bench-201/train-a-net.sh '|skip_connect~0|+|skip_connect~0|skip_connect~1|+|skip_connect~0|skip_connect~1|skip_connect~2|' 32 5 && CUDA_VISIBLE_DEVICES=2 bash ./scripts-search/NAS-Bench-201/train-a-net.sh '|skip_connect~0|+|skip_connect~0|skip_connect~1|+|skip_connect~0|skip_connect~1|skip_connect~2|' 64 5
+
+CUDA_VISIBLE_DEVICES=0 bash ./scripts-search/NAS-Bench-201/train-a-net.sh '|avg_pool_3x3~0|+|nor_conv_3x3~0|none~1|+|nor_conv_3x3~0|nor_conv_3x3~1|nor_conv_3x3~2|' 16 5 && CUDA_VISIBLE_DEVICES=0 bash ./scripts-search/NAS-Bench-201/train-a-net.sh '|avg_pool_3x3~0|+|nor_conv_3x3~0|none~1|+|nor_conv_3x3~0|nor_conv_3x3~1|nor_conv_3x3~2|' 32 5 && CUDA_VISIBLE_DEVICES=0 bash ./scripts-search/NAS-Bench-201/train-a-net.sh '|avg_pool_3x3~0|+|nor_conv_3x3~0|none~1|+|nor_conv_3x3~0|nor_conv_3x3~1|nor_conv_3x3~2|' 64 5
